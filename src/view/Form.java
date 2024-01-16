@@ -1,23 +1,15 @@
 package view;
 import javax.swing.*;
 import javax.swing.table.*;
-import  java.awt.GridBagConstraints;
-import  java.awt.GridBagLayout;
 
 import java.awt.*;
 public class Form extends JFrame {
 
 
     public Form(){
-
-        GridBagConstraints gbc = new GridBagConstraints();
-
         JPanel firstF = new JPanel();
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-//        gbc.gridheight = 9;
         JLabel titleT = new JLabel("fill the form to register a student");
-//        firstF.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
+        firstF.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         titleT.setFont(new Font("sanserif", Font.BOLD, 13));
         firstF.add(titleT);
 
@@ -104,23 +96,18 @@ public class Form extends JFrame {
 
 
         secondF.setBackground(Color.cyan);
-        gbc.gridy = 1;
-//        gbc.gridheight = 4;
         secondF.add(firstchild);
         secondF.add(secondchild);
         secondF.setLayout(new GridLayout(1,2));
 
-        JPanel mainbox = new JPanel();
-        mainbox.setLayout(new GridBagLayout());
-        mainbox.add(firstF,gbc);
-        mainbox.add(secondF,gbc);
 
-        this.add(mainbox);
+        this.setLayout(new BorderLayout());
+        this.add(firstF, BorderLayout.PAGE_START);
+        this.add(secondF, BorderLayout.CENTER);
         this.setLocation(800,500);
-        this.setSize(500,300);
+        this.setSize(700,400);
         this.setTitle("Registration Form");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new GridLayout(1,1));
 
 
 
