@@ -5,19 +5,16 @@ import javax.swing.table.*;
 import java.awt.*;
 public class Form extends JFrame {
 
-
     public Form(){
         JPanel firstF = new JPanel();
-        JLabel titleT = new JLabel("fill the form to register a student");
+        JLabel titleT = new JLabel("Fill the form to register a student");
         firstF.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         titleT.setFont(new Font("sanserif", Font.BOLD, 13));
         firstF.add(titleT);
 
-
-///////////////////////////////////////////// end of first container
-///////////////////////////////////////////// end of first container
-///////////////////////////////////////////// end of first container
-
+        ///////////////////////////////////////////// end of first container
+        ///////////////////////////////////////////// end of first container
+        ///////////////////////////////////////////// end of first container
 
         JPanel secondF = new JPanel();
         JPanel firstchild = new JPanel();
@@ -30,10 +27,9 @@ public class Form extends JFrame {
         firstchild1.add(Fname);
         firstchild1.add(FIname);
 
-
         JPanel firstchild2 = new JPanel();
         firstchild2.setLayout(new GridLayout(1,2,2,2));
-        JLabel Sname = new JLabel("last Name");
+        JLabel Sname = new JLabel("Last Name");
         JTextField SIname = new JTextField();
         firstchild2.add(Sname);
         firstchild2.add(SIname);
@@ -68,8 +64,6 @@ public class Form extends JFrame {
         firstchild5.add(dob);
         firstchild5.add(Tdob);
 
-
-
         JPanel firstchild6 = new JPanel();
         firstchild6.setLayout(new GridLayout(1,2,2,2));
         JButton cancel = new JButton("Cancel");
@@ -89,29 +83,55 @@ public class Form extends JFrame {
         firstchild.setLayout(new GridLayout(6,1));
 
         JPanel secondchild = new JPanel();
-        secondchild.setBackground(Color.green);
+        String[] columnNames = new String[5];
+        columnNames[0] = "NAME";
+        columnNames[1] = "SEX";
+        columnNames[2] = "Class";
+        columnNames[3] = "DOB";
+        columnNames[4] = "ACTION";
+
+
+        String[][] data = new String[1][5];
+        data[0][0] = "NAME";
+        data[0][1] = "SEX";
+        data[0][2] = "CLASS";
+        data[0][3] = "DOB";
 
 
 
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.add(table);
 
+        table.setRowHeight(30);
+        table.setTableHeader(new JTableHeader());
+        table.setForeground(Color.BLUE);
+
+
+        secondchild.add(table);
+        secondchild.add(scrollPane);
+        secondchild.setLayout(new GridLayout(2,1));
 
         secondF.setBackground(Color.cyan);
         secondF.add(firstchild);
         secondF.add(secondchild);
         secondF.setLayout(new GridLayout(1,2));
 
-
+        this.pack();
         this.setLayout(new BorderLayout());
         this.add(firstF, BorderLayout.PAGE_START);
         this.add(secondF, BorderLayout.CENTER);
         this.setLocation(800,500);
-        this.setSize(700,400);
+        this.setSize(1000,400);
         this.setTitle("Registration Form");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-
-
-
     }
+
+    ////////////////////////////////////////////////
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new Form().setVisible(true);
+        });
+    }
+    ///////////////////////////////////////////////
 }

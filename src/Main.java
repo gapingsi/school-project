@@ -10,4 +10,5 @@ public class Main {
         Form f = new Form();
         f.setVisible(true);
     }
+
 }
