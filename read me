@@ -1,0 +1,84 @@
+// Step 1: Import necessary libraries
+import javax.swing.*; // Import the Swing library for creating GUI components
+import java.awt.*; // Import the AWT library for basic GUI functionality
+import java.awt.event.ActionEvent; // Import the ActionEvent class for handling button events
+import java.awt.event.ActionListener; // Import the ActionListener interface for handling button click events
+
+// Step 2: Create Model class
+class CalculatorModel {
+    private double result; // Declare a private variable to store the calculator result
+
+    // Define a method to perform arithmetic operations based on the operator
+    public void performOperation(double operand, String operator) {
+        switch (operator) {
+            case "+":
+                result += operand;
+                break;
+            case "-":
+                result -= operand;
+                break;
+            case "*":
+                result *= operand;
+                break;
+            case "/":
+                result /= operand;
+                break;
+            default:
+                result = operand; // Default to assigning the operand if no valid operator is provided
+        }
+    }
+
+    // Define a method to get the current result
+    public double getResult() {
+        return result;
+    }
+}
+
+// Step 3: Create View class
+class CalculatorView {
+    private JTextField display; // Declare a private text field for displaying the calculator input and result
+
+    // Constructor to initialize the GUI components
+    public CalculatorView() {
+        JFrame frame = new JFrame("Simple Calculator"); // Create a new JFrame (window) with a title
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Set close operation when the window is closed
+        frame.setSize(300, 400); // Set the size of the window
+
+        display = new JTextField(); // Create a new text field for display
+        display.setEditable(false); // Set the text field to be non-editable
+
+        // Create buttons for digits and operators (implementation details omitted for simplicity)
+
+        // Add buttons to the frame (implementation details omitted for simplicity)
+
+        frame.setVisible(true); // Set the window to be visible
+    }
+
+    // Method to update the display with the result
+    public void updateDisplay(double result) {
+        display.setText(String.valueOf(result)); // Convert the result to a string and set it in the text field
+    }
+}
+
+// Step 4: Create Controller class
+class CalculatorController {
+    private CalculatorModel model; // Reference to the CalculatorModel
+    private CalculatorView view; // Reference to the CalculatorView
+
+    // Constructor to initialize the controller with the model and view
+    public CalculatorController(CalculatorModel model, CalculatorView view) {
+        this.model = model; // Set the model reference
+        this.view = view; // Set the view reference
+
+        // Add ActionListener for each button to update the model and view (implementation details omitted for simplicity)
+    }
+}
+
+// Step 5: Main class
+public class Main {
+    public static void main(String[] args) {
+        CalculatorModel model = new CalculatorModel(); // Create an instance of CalculatorModel
+        CalculatorView view = new CalculatorView(); // Create an instance of CalculatorView
+        CalculatorController controller = new CalculatorController(model, view); // Create an instance of CalculatorController with model and view references
+    }
+}
