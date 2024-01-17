@@ -1,14 +1,12 @@
-//import view.View;
-import view.Form;
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
+import view.View;
+
 public class Main {
     public static void main(java.lang.String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
 
-        Form f = new Form();
-        f.setVisible(true);
+
+        View v = new View();
+        v.setVisible(true);
     }
 
 }

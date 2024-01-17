@@ -1,14 +1,16 @@
 package view;
 import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.table.*;
 
 import java.awt.*;
-public class Form extends JFrame {
-
+public class Form {
+     JFrame frame = new JFrame();
     public Form(){
         JPanel firstF = new JPanel();
         JLabel titleT = new JLabel("Fill the form to register a student");
-        firstF.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        firstF.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
         titleT.setFont(new Font("sanserif", Font.BOLD, 13));
         firstF.add(titleT);
 
@@ -18,7 +20,7 @@ public class Form extends JFrame {
 
         JPanel secondF = new JPanel();
         JPanel firstchild = new JPanel();
-        firstchild.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 10));
+        firstchild.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 5));
 
         JPanel firstchild1 = new JPanel();
         firstchild1.setLayout(new GridLayout(1,2,2,2));
@@ -82,56 +84,51 @@ public class Form extends JFrame {
         firstchild.add(firstchild6);
         firstchild.setLayout(new GridLayout(6,1));
 
+
+
+
         JPanel secondchild = new JPanel();
-        String[] columnNames = new String[5];
-        columnNames[0] = "NAME";
-        columnNames[1] = "SEX";
-        columnNames[2] = "Class";
-        columnNames[3] = "DOB";
-        columnNames[4] = "ACTION";
-
-
-        String[][] data = new String[1][5];
-        data[0][0] = "NAME";
-        data[0][1] = "SEX";
-        data[0][2] = "CLASS";
-        data[0][3] = "DOB";
-
-
-
+        String[][] data = {
+                { "", "", "","","" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" },
+        };
+        String[] columnNames = { "NAME", "SEX", "CLASS" ," DOB", " ACTION" };
         JTable table = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.add(table);
-
-        table.setRowHeight(30);
-        table.setTableHeader(new JTableHeader());
-        table.setForeground(Color.BLUE);
 
 
-        secondchild.add(table);
-        secondchild.add(scrollPane);
-        secondchild.setLayout(new GridLayout(2,1));
+
+
+        JScrollPane sp = new JScrollPane(table);
+
+
+
+        secondchild.add(sp);
+
+
+
+
+
 
         secondF.setBackground(Color.cyan);
         secondF.add(firstchild);
         secondF.add(secondchild);
         secondF.setLayout(new GridLayout(1,2));
 
-        this.pack();
-        this.setLayout(new BorderLayout());
-        this.add(firstF, BorderLayout.PAGE_START);
-        this.add(secondF, BorderLayout.CENTER);
-        this.setLocation(800,500);
-        this.setSize(1000,400);
-        this.setTitle("Registration Form");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLayout(new BorderLayout());
+        frame.add(firstF, BorderLayout.PAGE_START);
+        frame.add(secondF, BorderLayout.CENTER);
+        frame.setLocation(800,500);
+        frame.setSize(1000,300);
+        frame.setTitle("Registration Form");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 
     ////////////////////////////////////////////////
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Form().setVisible(true);
-        });
-    }
-    ///////////////////////////////////////////////
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(() -> {
+//            new Form().setVisible(true);
+//        });
+//    }
+//    ///////////////////////////////////////////////
 }
