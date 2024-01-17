@@ -7,22 +7,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class View extends JFrame implements ActionListener {
-    private JButton jButtonA, jButtonS, jButtonM;
 
 
+    JButton jButtonA, jButtonS, jButtonM;
     public View() {
 
-        JButton jButtonA = new JButton();
+        jButtonA = new JButton();
         jButtonA.setText("Register a student");
         jButtonA.setForeground(new Color(51, 100, 155));
         jButtonA.addActionListener(this);
 
-        JButton jButtonS = new JButton();
+        jButtonS = new JButton();
         jButtonS.setText("Register an Exam");
         jButtonS.setForeground(new Color(51, 100, 155));
         jButtonS.addActionListener(this);
 
-        JButton jButtonM = new JButton();
+        jButtonM = new JButton();
         jButtonM.setText("Register marks");
         jButtonM.setForeground(new Color(51, 100, 155));
         jButtonM.addActionListener(this);
@@ -36,13 +36,14 @@ public class View extends JFrame implements ActionListener {
         JPanelButton.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
 
-        this.setLocation(500, 300);
+
         this.setSize(500, 300);
         this.setTitle("School App");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(1, 1));
         this.add(JPanelButton);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
         this.setBackground(Color.blue);
     }
 
@@ -59,22 +60,17 @@ public class View extends JFrame implements ActionListener {
             this.dispose();
             Form Studentform = new Form();
         }
-
-        else if (e.getSource() == jButtonS) {
-            this.dispose();
-            Form Studentform1 = new Form();
-
+        else
+        { this.dispose();
+          View homeview = new View();
         }
-//            else if (e.getSource() == jButtonM) {
-//                this.dispose();
-//                Form Studentform2 = new Form();
 
-    }
+    }}
 
 
 
 
-    }
+
 
 
 //    public static void main(String[] args) {

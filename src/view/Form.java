@@ -2,14 +2,13 @@ package view;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.table.*;
-
 import java.awt.*;
 public class Form {
      JFrame frame = new JFrame();
     public Form(){
         JPanel firstF = new JPanel();
         JLabel titleT = new JLabel("Fill the form to register a student");
+        titleT.setForeground(Color.darkGray);
         firstF.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
         titleT.setFont(new Font("sanserif", Font.BOLD, 13));
         firstF.add(titleT);
@@ -93,10 +92,6 @@ public class Form {
         };
         String[] columnNames = { "NAME", "SEX", "CLASS" ," DOB", " ACTION" };
         JTable table = new JTable(data, columnNames);
-
-
-
-
         JScrollPane sp = new JScrollPane(table);
 
 
@@ -117,11 +112,12 @@ public class Form {
         frame.setLayout(new BorderLayout());
         frame.add(firstF, BorderLayout.PAGE_START);
         frame.add(secondF, BorderLayout.CENTER);
-        frame.setLocation(800,500);
+        frame.setLocationRelativeTo(null);
         frame.setSize(1000,300);
         frame.setTitle("Registration Form");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 
     ////////////////////////////////////////////////
