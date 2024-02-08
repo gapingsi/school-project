@@ -6,5 +6,7 @@ public class Main {
         View v = new View();
         v.setVisible(true);
     }
-
 }
+
+
+https://github.com/jamstanleyambe/java_schoolapp.git
