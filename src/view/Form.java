@@ -4,10 +4,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.*;
 public class Form {
-     JFrame frame = new JFrame();
-    public Form(){
-        JPanel firstF = new JPanel();
-        JLabel titleT = new JLabel("Fill the form to register a student");
+
+    JPanel firstF,secondF, firstchild,firstchild1,firstchild2, firstchild3, firstchild4,firstchild5,firstchild6,secondchild   ;
+    JLabel titleT, Fname, Sname, sex, classF ,dob    ;
+    JTextField FIname,SIname, Tdob ;
+    JRadioButton Msex, Fsex ;
+    JButton cancel, submit ;
+    JTable table;
+    JScrollPane sp;
+    JComboBox<String> classB;
+    JFrame frame = new JFrame();
+     public Form(){
+        firstF = new JPanel();
+        titleT = new JLabel("Fill the form to register a student");
         titleT.setForeground(Color.darkGray);
         firstF.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
         titleT.setFont(new Font("sanserif", Font.BOLD, 13));
@@ -17,38 +26,45 @@ public class Form {
         ///////////////////////////////////////////// end of first container
         ///////////////////////////////////////////// end of first container
 
-        JPanel secondF = new JPanel();
-        JPanel firstchild = new JPanel();
+        secondF = new JPanel();
+        firstchild = new JPanel();
         firstchild.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 5));
 
-        JPanel firstchild1 = new JPanel();
+        firstchild1 = new JPanel();
         firstchild1.setLayout(new GridLayout(1,2,2,2));
-        JLabel Fname = new JLabel("First Name");
-        JTextField FIname = new JTextField();
+        Fname = new JLabel("First Name");
+        FIname = new JTextField();
         firstchild1.add(Fname);
         firstchild1.add(FIname);
 
-        JPanel firstchild2 = new JPanel();
+        firstchild2 = new JPanel();
         firstchild2.setLayout(new GridLayout(1,2,2,2));
-        JLabel Sname = new JLabel("Last Name");
-        JTextField SIname = new JTextField();
+        Sname = new JLabel("Last Name");
+        SIname = new JTextField();
         firstchild2.add(Sname);
         firstchild2.add(SIname);
 
-        JPanel firstchild3 = new JPanel();
-        firstchild3.setLayout(new GridLayout(1,3,2,2));
-        JLabel sex = new JLabel("Sex");
-        JRadioButton Fsex = new JRadioButton("F");
-        JRadioButton Msex = new JRadioButton("M");
+         firstchild3 = new JPanel();
+        firstchild3.setLayout(new GridLayout(1, 3, 2, 2));
+        sex = new JLabel("Sex");
+        Fsex = new JRadioButton("F");
+        Msex = new JRadioButton("M");
+
+// Create a ButtonGroup
+        ButtonGroup sexGroup = new ButtonGroup();
+        sexGroup.add(Fsex);
+        sexGroup.add(Msex);
+
         firstchild3.add(sex);
         firstchild3.add(Fsex);
         firstchild3.add(Msex);
 
-        JPanel firstchild4 = new JPanel();
-        firstchild4.setLayout(new GridLayout(1,2,2,2));
-        JLabel classF = new JLabel("Class");
 
-        JComboBox<String> classB = new JComboBox<>();
+        firstchild4 = new JPanel();
+        firstchild4.setLayout(new GridLayout(1,2,2,2));
+        classF = new JLabel("Class");
+
+        classB = new JComboBox<>();
         String[] items = {"Item 1", "Item 2", "Item 3"};
         classB.addItem("Choose a class");  // Optional default item
         for (String item : items) {
@@ -58,19 +74,19 @@ public class Form {
         firstchild4.add(classF);
         firstchild4.add(classB);
 
-        JPanel firstchild5 = new JPanel();
+        firstchild5 = new JPanel();
         firstchild5.setLayout(new GridLayout(1,2,2,2));
-        JLabel dob = new JLabel("DOB");
-        JTextField Tdob = new JTextField();
+        dob = new JLabel("DOB");
+        Tdob = new JTextField();
         firstchild5.add(dob);
         firstchild5.add(Tdob);
 
-        JPanel firstchild6 = new JPanel();
+        firstchild6 = new JPanel();
         firstchild6.setLayout(new GridLayout(1,2,2,2));
-        JButton cancel = new JButton("Cancel");
+        cancel = new JButton("Cancel");
         cancel.setForeground(new Color(51,50,155));
 
-        JButton submit = new JButton("Submit");
+        submit = new JButton("Submit");
         submit.setForeground(new Color(51,50,155));
         firstchild6.add(cancel);
         firstchild6.add(submit);
@@ -83,25 +99,14 @@ public class Form {
         firstchild.add(firstchild6);
         firstchild.setLayout(new GridLayout(6,1));
 
-
-
-
-        JPanel secondchild = new JPanel();
+        secondchild = new JPanel();
         String[][] data = {
                 { "", "", "","","" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" },
         };
         String[] columnNames = { "NAME", "SEX", "CLASS" ," DOB", " ACTION" };
-        JTable table = new JTable(data, columnNames);
-        JScrollPane sp = new JScrollPane(table);
-
-
-
+        table = new JTable(data, columnNames);
+        sp = new JScrollPane(table);
         secondchild.add(sp);
-
-
-
-
-
 
         secondF.setBackground(Color.cyan);
         secondF.add(firstchild);
@@ -119,6 +124,8 @@ public class Form {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }
+
+
 
     ////////////////////////////////////////////////
 //    public static void main(String[] args) {
