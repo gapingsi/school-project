@@ -3,7 +3,13 @@ import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.*;
-public class Form {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
+
+
+
+public class Form implements ActionListener {
 
     JPanel firstF,secondF, firstchild,firstchild1,firstchild2, firstchild3, firstchild4,firstchild5,firstchild6,secondchild   ;
     JLabel titleT, Fname, Sname, sex, classF ,dob    ;
@@ -13,6 +19,7 @@ public class Form {
     JTable table;
     JScrollPane sp;
     JComboBox<String> classB;
+   DefaultTableModel tableModel;
     JFrame frame = new JFrame();
      public Form(){
         firstF = new JPanel();
@@ -44,7 +51,7 @@ public class Form {
         firstchild2.add(Sname);
         firstchild2.add(SIname);
 
-         firstchild3 = new JPanel();
+        firstchild3 = new JPanel();
         firstchild3.setLayout(new GridLayout(1, 3, 2, 2));
         sex = new JLabel("Sex");
         Fsex = new JRadioButton("F");
@@ -87,6 +94,7 @@ public class Form {
         cancel.setForeground(new Color(51,50,155));
 
         submit = new JButton("Submit");
+        submit.addActionListener(this);
         submit.setForeground(new Color(51,50,155));
         firstchild6.add(cancel);
         firstchild6.add(submit);
@@ -100,11 +108,17 @@ public class Form {
         firstchild.setLayout(new GridLayout(6,1));
 
         secondchild = new JPanel();
-        String[][] data = {
-                { "", "", "","","" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" },
-        };
-        String[] columnNames = { "NAME", "SEX", "CLASS" ," DOB", " ACTION" };
-        table = new JTable(data, columnNames);
+
+
+//        String[][] data = {
+//                { "", "", "","","" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" },
+//        };
+//        String[] columnNames = { "NAME", "SEX", "CLASS" ," DOB", " ACTION" };
+
+        String[] columnNames = {"NAME", "SEX", "CLASS", "DOB", "ACTION"};
+        tableModel = new DefaultTableModel(columnNames, 0);
+        table = new JTable(tableModel);
+        table.setBackground(Color.green);
         sp = new JScrollPane(table);
         secondchild.add(sp);
 
@@ -125,13 +139,24 @@ public class Form {
         frame.setLocationRelativeTo(null);
     }
 
+   public JButton getSubmit() {
+      return submit;
+
+   }
+
+   public void setSubmit(JButton submit) {
+      this.submit = submit;
+   }
+
+   public void actionPerformed(ActionEvent e) {
+      String firstName = FIname.getText();
+      String lastName = SIname.getText();
+      String sex = Fsex.isSelected() ? "F" : "M";
+      String selectedClass = classB.getSelectedItem().toString();
+      String dob = Tdob.getText();
+      DefaultTableModel model = (DefaultTableModel) table.getModel();
+      tableModel.addRow(new Object[]{firstName + " " + lastName, sex, selectedClass, dob, "Action"});
+   }
 
 
-    ////////////////////////////////////////////////
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> {
-//            new Form().setVisible(true);
-//        });
-//    }
-//    ///////////////////////////////////////////////
 }
