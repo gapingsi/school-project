@@ -1,9 +1,9 @@
 package view;
-import com.sun.tools.javac.Main;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class View extends JFrame implements ActionListener {
@@ -66,22 +66,3 @@ public class View extends JFrame implements ActionListener {
         }
 
     }}
-
-
-
-
-
-
-
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> {
-//            new Form().setVisible(true);
-//        });
-//    }
-
-
-
-
-
-
-

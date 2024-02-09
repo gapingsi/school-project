@@ -7,6 +7,3 @@ public class Main {
         v.setVisible(true);
     }
 }
-
-
-https://github.com/jamstanleyambe/java_schoolapp.git
