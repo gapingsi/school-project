@@ -9,30 +9,30 @@ import java.awt.event.ActionListener;
 public class View extends JFrame implements ActionListener {
 
 
-    JButton jButtonA, jButtonS, jButtonM;
+    JButton JbtnA, JbtnS, JbtnM;
     public View() {
 
-        jButtonA = new JButton();
-        jButtonA.setText("Register a student");
-        jButtonA.setForeground(new Color(51, 100, 155));
-        jButtonA.addActionListener(this);
+        JbtnA = new JButton();
+        JbtnA.setText("Register a Student");
+        JbtnA.setForeground(new Color(52, 100, 155));
+        JbtnA.addActionListener(this);
 
-        jButtonS = new JButton();
-        jButtonS.setText("Register an Exam");
-        jButtonS.setForeground(new Color(51, 100, 155));
-        jButtonS.addActionListener(this);
+        JbtnS = new JButton();
+        JbtnS.setText("Register an Exam");
+        JbtnS.setForeground(new Color(52, 100, 155));
+        JbtnS.addActionListener(this);
 
-        jButtonM = new JButton();
-        jButtonM.setText("Register marks");
-        jButtonM.setForeground(new Color(51, 100, 155));
-        jButtonM.addActionListener(this);
+        JbtnM = new JButton();
+        JbtnM.setText("Register Marks");
+        JbtnM.setForeground(new Color(52, 100, 155));
+        JbtnM.addActionListener(this);
 
 
         JPanel JPanelButton = new JPanel();
         JPanelButton.setLayout(new GridLayout(3, 1, 10, 10));
-        JPanelButton.add(jButtonA);
-        JPanelButton.add(jButtonS);
-        JPanelButton.add(jButtonM);
+        JPanelButton.add(JbtnA);
+        JPanelButton.add(JbtnS);
+        JPanelButton.add(JbtnM);
         JPanelButton.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
 
@@ -47,16 +47,15 @@ public class View extends JFrame implements ActionListener {
         this.setBackground(Color.blue);
     }
 
-    /**
-     * Invoked when an action occurs.
-     *
-     * @param e the event to be processed
-     */
+
+    /**INVOKE ACTION WHEN IT OCCURS*/
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
 
-        if (e.getSource() == jButtonA) {
+        if (e.getSource() == JbtnA) {
             this.dispose();
             Form Studentform = new Form();
         }
